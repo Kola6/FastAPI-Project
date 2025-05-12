@@ -31,7 +31,7 @@ jobs:
       with:
          context: ./app-code
          push: true
-         tags: ${{ secrets.DOCKER_USERNAME }}/fastapi-app:${{ github.sha }}
+         tags: ${{ secrets.DOCKER_USERNAME }}/fastapi-app:latest
 
     # - name: Set up kubectl
     #   uses: azure/setup-kubectl@v3

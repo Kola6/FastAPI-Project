@@ -1,9 +1,12 @@
 replicaCount: 1
 
 image:
-  repository: serrajov/fastapi-app
+  repository: joviserrao/fastapi-app
   tag: latest
   pullPolicy: IfNotPresent
+
+imagePullSecrets:
+- name: dockerhub-cred
 
 service:
   type: LoadBalancer

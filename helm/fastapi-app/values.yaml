@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: joviserrao/fastapi-app
-  tag: "687e22f4a7dee487e13d3d5037b20639cda58dda"
+  tag: "latest"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -20,3 +20,8 @@ ingress:
     paths:
     - path: /
       pathType: Prefix
+      backend:
+        service:
+          name: fastapi-service
+          port:
+            number: 80

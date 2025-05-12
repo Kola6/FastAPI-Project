@@ -1,10 +1,12 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
     branches: [main]
+
   pull_request:
     branches: [main]
+
   workflow_dispatch:
 
 jobs:
@@ -24,31 +26,31 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v5
-      with:
-        context: ./app-code
-        push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/fastapi-app:${{ github.sha }}
+    # - name: Build and push Docker image
+    #   uses: docker/build-push-action@v5
+    #   with:
+    #     context: ./app-code
+    #     push: true
+    #     tags: ${{ secrets.DOCKER_USERNAME }}/fastapi-app:${{ github.sha }}
 
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'latest'
+    # - name: Set up kubectl
+    #   uses: azure/setup-kubectl@v3
+    #   with:
+    #     version: 'latest'
 
-    - name: Set up Helm
-      uses: azure/setup-helm@v3
-      with:
-        version: v3.12.0
+    # - name: Set up Helm
+    #   uses: azure/setup-helm@v3
+    #   with:
+    #     version: v3.12.0
 
-    - name: Configure Kubeconfig for Minikube
-      run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBECONFIG }}" | base64 --decode > ~/.kube/config
+    # - name: Configure Kubeconfig for Minikube
+    #   run: |
+    #     mkdir -p ~/.kube
+    #     echo "${{ secrets.KUBECONFIG }}" | base64 --decode > ~/.kube/config
 
-    - name: Deploy using Helm
-      run: |
-        helm upgrade --install fastapi-app ./helm \
-          --set image.repository=${{ secrets.DOCKER_USERNAME }}/fastapi-app \
-          --set image.tag=latest \
-          --namespace default
+    # - name: Deploy using Helm
+    #   run: |
+    #     helm upgrade --install fastapi-app ./helm \
+    #       --set image.repository=${{ secrets.DOCKER_USERNAME }}/fastapi-app \
+    #       --set image.tag=latest \
+    #       --namespace default

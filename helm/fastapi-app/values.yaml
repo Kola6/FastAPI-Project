@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: joviserrao/fastapi-app
-  tag: latest
+  tag: "687e22f4a7dee487e13d3d5037b20639cda58dda"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:

@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: your_dockerhub_username/fastapi-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+  - host: fastapi.local
+    paths:
+    - path: /
+      pathType: Prefix

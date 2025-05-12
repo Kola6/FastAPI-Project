@@ -9,6 +9,7 @@ imagePullSecrets:
 - name: dockerhub-cred
 
 service:
+  name: fastapi-service
   type: LoadBalancer
   port: 80
 
@@ -20,8 +21,3 @@ ingress:
     paths:
     - path: /
       pathType: Prefix
-      backend:
-        service:
-          name: fastapi-service
-          port:
-            number: 80

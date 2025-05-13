@@ -92,7 +92,7 @@ base64 -i minikube-only-kubeconfig.yaml | tr -d '\n' -o kubeconfig_gh_secret
 
 ### 3. Minikube Setup
 
-Start Minikube:
+*Start Minikube:*
 
 ```bash
 minikube start
@@ -100,7 +100,7 @@ minikube addons enable ingress
 minikube tunnel
 ```
 
-Add Docker Credential to minikube cluster: </br>
+*Add Docker Credential to minikube cluster:* </br>
 This can be done using kubectl create command and sample of it is located at [docker-secret](./additional-files/docker-secret.yaml).
 
 *Note:*
@@ -156,7 +156,7 @@ secret/fastapi-git-https created
 
 ### 5. ArgoCD Application Configuration
 
-File located at  [argocd_app](./argocd/application.yaml)
+File located at [argocd_app](./argocd/application.yaml).
 
 Apply with:
 
@@ -170,7 +170,7 @@ An App can be created directly on the ArgoCD dashboard (UI), using the config fi
 
 Once synced, ArgoCD will deploy the application.
 
-*Note: Since autosync is enabled argoCD will sync regularly when changes are found in git.*
+*Note: Since autosync is enabled, ArgoCD will sync regularly when changes are found in git.*
 
 ---
 

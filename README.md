@@ -100,7 +100,7 @@ minikube addons enable ingress
 minikube tunnel
 ```
 
-Add Docker Credential to minikube cluster:
+Add Docker Credential to minikube cluster: </br>
 This can be done using kubectl create command and sample of it is located at [docker-secret](./additional-files/docker-secret.yaml).
 
 *Note:*
@@ -141,7 +141,7 @@ Then open: [https://localhost:8080](https://localhost:8080)
 Choose connection method as Http/Https and use Github user credentials and repo url .
 
 *Create a PAT token in Github:* </br>
-A classic PAT token can be for this project.
+A classic PAT token can be used for this project.
 
 *Connect ArgoCD to minikube k8s cluster:* </br>
 Create a secret in k8s to allow ArgoCD to access the minikube cluster. Sample file located at [repo-secret](./additional-files/repo-secret.yaml).
@@ -223,23 +223,23 @@ curl http://127.0.0.1:8000
 
 Refer to the included images for:
 
-* ArgoCD Application UI 
+* ArgoCD Application UI </br>
 ![ArgoCD App](./additional-files/images/img1.png)
 
-* Browser access confirmation
+* Browser access confirmation </br>
 ![Browser Access](./additional-files/images/img2.png)
 
-* Terminal access confirmation
-![Browser Access](./additional-files/images/img3.png)
+* Terminal access confirmation </br>
+![Terminal Access](./additional-files/images/img3.png)
 
-* Terminal output for Minikube services
+* Terminal output for Minikube services </br>
 ![Minikube Service](./additional-files/images/img4.png)
 
-* Browser Access for FastAPI with docs endpoint
-![Minikube Service](./additional-files/images/img5.png)
+* Browser Access for FastAPI with docs endpoint </br>
+![FastAPI docs](./additional-files/images/img5.png)
 
-* Browser Access for FastAPI with redocs endpoint
-![Minikube Service](./additional-files/images/img6.png)
+* Browser Access for FastAPI with redocs endpoint </br>
+![FastAPI redocs](./additional-files/images/img6.png)
 
 ---
 

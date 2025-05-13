@@ -88,6 +88,12 @@ base64 -i minikube-only-kubeconfig.yaml | tr -d '\n' -o kubeconfig_gh_secret
 - It is automatically triggered for push and pull_request events.
 - Can be manually triggered as well.
 
+#### Badge
+
+[![CI Pipeline](https://github.com/serrajov/FastAPI/actions/worflows/ci.yaml)](https://github.com/serrajov/FastAPI/actions/worflows/ci.yaml)
+
+[![Quality Gate Blackduck](https://github.com/vwdfive/marketplace/actions/workflows/qg_blackduck.yml/badge.svg)](https://github.com/vwdfive/marketplace/actions/workflows/qg_blackduck.yml)
+
 ---
 
 ### 3. Minikube Setup
@@ -224,21 +230,27 @@ curl http://127.0.0.1:8000
 Refer to the included images for:
 
 * ArgoCD Application UI </br>
+
 ![ArgoCD App](./additional-files/images/img1.png)
 
 * Browser access confirmation </br>
+
 ![Browser Access](./additional-files/images/img2.png)
 
 * Terminal access confirmation </br>
+
 ![Terminal Access](./additional-files/images/img3.png)
 
 * Terminal output for Minikube services </br>
+
 ![Minikube Service](./additional-files/images/img4.png)
 
 * Browser Access for FastAPI with docs endpoint </br>
+
 ![FastAPI docs](./additional-files/images/img5.png)
 
 * Browser Access for FastAPI with redocs endpoint </br>
+
 ![FastAPI redocs](./additional-files/images/img6.png)
 
 ---

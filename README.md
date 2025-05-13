@@ -41,13 +41,13 @@ This project demonstrates the setup and deployment of a simple **FastAPI** appli
 
 ## ✅ Prerequisites
 
-* ✅ GitHub Account and repository
-* ✅ Docker Hub Account and repository
-* ✅ Git Cli installed
-* ✅ Kubernetes Cli installed (kubectl)
-* ✅ Helm installed
-* ✅ Minikube installed (on local machine)
-* ✅ ArgoCD installed (on your local machine)
+* GitHub Account and repository
+* Docker Hub Account and repository
+* Git Cli installed
+* Kubernetes Cli installed (kubectl)
+* Helm installed
+* Minikube installed (on local machine)
+* ArgoCD installed (on your local machine)
 
 ---
 
@@ -137,13 +137,13 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 Then open: [https://localhost:8080](https://localhost:8080)
 
-*Connect Github and ArgoCD:*
+*Connect Github and ArgoCD:* </br>
 Choose connection method as Http/Https and use Github user credentials and repo url .
 
-*Create a PAT token in Github:*
+*Create a PAT token in Github:* </br>
 A classic PAT token can be for this project.
 
-*Connect ArgoCD to minikube k8s cluster*
+*Connect ArgoCD to minikube k8s cluster:* </br>
 Create a secret in k8s to allow ArgoCD to access the minikube cluster. Sample file located at [repo-secret](./additional-files/repo-secret.yaml).
 
 ```bash

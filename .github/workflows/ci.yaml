@@ -2,10 +2,22 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+    paths:
+      - "app-code/**"
+      - "helm/**"
+      - "!**.md"
+      - "!additional-files/**"
 
   pull_request:
-    branches: [main]
+    branches:
+      - main
+    paths:
+      - "app-code/**"
+      - "helm/**"
+      - "!**.md"
+      - "!additional-files/**"
 
   workflow_dispatch:
 

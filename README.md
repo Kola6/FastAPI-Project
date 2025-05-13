@@ -90,7 +90,7 @@ base64 -i minikube-only-kubeconfig.yaml | tr -d '\n' -o kubeconfig_gh_secret
 
 #### Badge
 
-[![CI Pipeline](https://github.com/serrajov/FastAPI/actions/worflows/ci.yaml/badge.svg)](https://github.com/serrajov/FastAPI/actions/worflows/ci.yaml)
+[![CI Pipeline](https://github.com/serrajov/FastAPI/actions/workflows/ci.yaml/badge.svg)](https://github.com/serrajov/FastAPI/actions/workflows/ci.yaml)
 
 ---
 

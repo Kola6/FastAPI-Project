@@ -92,8 +92,6 @@ base64 -i minikube-only-kubeconfig.yaml | tr -d '\n' -o kubeconfig_gh_secret
 
 [![CI Pipeline](https://github.com/serrajov/FastAPI/actions/worflows/ci.yaml)](https://github.com/serrajov/FastAPI/actions/worflows/ci.yaml)
 
-[![Quality Gate Blackduck](https://github.com/vwdfive/marketplace/actions/workflows/qg_blackduck.yml/badge.svg)](https://github.com/vwdfive/marketplace/actions/workflows/qg_blackduck.yml)
-
 ---
 
 ### 3. Minikube Setup

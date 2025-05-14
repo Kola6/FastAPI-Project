@@ -1,7 +1,5 @@
 # Part 1 - Coding Challenge
 
----
-
 ## FastAPI Kubernetes Deployment with ArgoCD
 
 This project demonstrates the setup and deployment of a simple **FastAPI** application using **Docker**, **Minikube**, **Kubernetes**, and **ArgoCD** for GitOps. The entire setup is designed for local development and testing using a minimal but production-like stack.
@@ -228,6 +226,7 @@ curl http://127.0.0.1:8000
 * Make sure Docker image name in Helm `values.yaml` matches the one in your pipeline.
 * Ensure ArgoCD has access to your GitHub repo.
 * Minikube tunnel must stay active while accessing services.
+* ArgoCD Tunnel (Port Forward) should also be opened when accessing it.
 
 ---
 
@@ -261,6 +260,12 @@ Refer to the included images for:
 
 ---
 
+## Part2 
+
+For Part 2, refer [Task2](Task2.md).
+
+---
+
 ## 📫 Contact
 
 For any issues or questions, feel free to open an issue in the repo.
@@ -268,6 +273,8 @@ For any issues or questions, feel free to open an issue in the repo.
 Happy coding! 🎉
 
 ---
+
+
 
 
 

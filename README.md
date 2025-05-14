@@ -48,6 +48,7 @@ This project demonstrates the setup and deployment of a simple **FastAPI** appli
 * Helm installed
 * Minikube installed (on local machine)
 * ArgoCD installed (on your local machine)
+* ArgoCD Cli installed
 
 ---
 
@@ -61,6 +62,7 @@ Below are the contents:
 - The required dependencies is present in `app-code/requirements.txt`.
 - Containerzed application is defined in file `app-code/Dockerfile`.
 
+*Note: Reference link: [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)*
 ---
 
 ### 2. CI Pipeline
@@ -110,6 +112,7 @@ This can be done using kubectl create command and sample of it is located at [do
 *Note:*
 - Keep the tunnel running to access the ingress controller.
 - Wait for few mins after enabling the ingress, since it needs time to get all the necessary pods into the running state.
+- Reference link: [install minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Fx86-64%2Fstable%2Fbinary+download)
 
 ---
 
@@ -156,6 +159,7 @@ kubectl apply -f repo-secret.yaml
 secret/fastapi-git-https created
 ```
 
+*Note: Reference link: [Install ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)*
 ---
 
 ### 5. ArgoCD Application Configuration

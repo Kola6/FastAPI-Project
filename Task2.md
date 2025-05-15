@@ -221,7 +221,7 @@ The architecture diagram contains following infrastructure components:
 
 #### Namespaces per Environment:
 
-* **Environments**`dev`, `staging or QA`, `prod`
+* **Environments** `dev`, `staging or QA`, `prod`
 * **RBAC** per namespace
 * **Resource quotas** to limit compute usage
 

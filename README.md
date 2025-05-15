@@ -64,7 +64,7 @@ Below are the contents:
 - The required dependencies is present in `app-code/requirements.txt`.
 - Containerzed application is defined in file `app-code/Dockerfile`.
 
-*Note: Reference link: [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)*
+*Note*: Reference link: [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
 ---
 
 ### 2. CI Pipeline

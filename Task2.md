@@ -82,19 +82,19 @@ The Infrastructure as Code (IaC) is developed using `Terraform` in this architec
 
 ### Infrastructure Workflow
 
-* **Pull Request**: A feature branch is used to create or update the infrastructure. Once the work is done, a Pull Request is created.
+* **Pull Request:** A feature branch is used to create or update the infrastructure. Once the work is done, a Pull Request is created.
 
-* **Terrform Lint**: TFLint is a Linter used to check for any potential issues or errors. Terrfaform inbuilt has a the format feature `terraform fmt` which can be used to check for issues related to formatting, indentation and alignment.
+* **Terrform Lint:** TFLint is a Linter used to check for any potential issues or errors. Terrfaform inbuilt has a the format feature `terraform fmt` which can be used to check for issues related to formatting, indentation and alignment.
 
-* **Terraform Init**: This first intializes the backend and then the working directory containing configuration files and install plugins for required providers. 
+* **Terraform Init:** This first intializes the backend and then the working directory containing configuration files and install plugins for required providers. 
 
-* **Terraform Validate**: It is used to validate the terrform configuration provided such that it approves only for the ones supported by terraform. It points out when certain resource configuration is invalid.
+* **Terraform Validate:** It is used to validate the terrform configuration provided such that it approves only for the ones supported by terraform. It points out when certain resource configuration is invalid.
 
-* **Terraform Plan**: This will generate the complete terraform plan showing the changes reflected in the infrastructure creation, updation or deletion.
+* **Terraform Plan:** This will generate the complete terraform plan showing the changes reflected in the infrastructure creation, updation or deletion.
 
-* **Merge Pull Request**: Approval is provided by reviewer when all the checks on terraform pipeline are green starting from TFLint until Terraform Plan and then merged to `main` branch.
+* **Merge Pull Request:** Approval is provided by reviewer when all the checks on terraform pipeline are green starting from TFLint until Terraform Plan and then merged to `main` branch.
 
-* **Terraform Apply**: When Pull Request is merged, terraform then applies the configuration changes to the Cloud infrastructure.
+* **Terraform Apply:** When Pull Request is merged, terraform then applies the configuration changes to the Cloud infrastructure.
 
 **Note**: 
 - `Terraform Destroy` is used to destroy the infrastructure created. 
@@ -105,11 +105,11 @@ The Infrastructure as Code (IaC) is developed using `Terraform` in this architec
 
 The architecture diagram contains following infrastructure components:
 
-* **Azure Container Registry (ACR)**: This is used to store build, store and manage container images and artifacts in a private registry for all types of container deployments. 
+* **Azure Container Registry (ACR):** This is used to store build, store and manage container images and artifacts in a private registry for all types of container deployments. 
 
-* **Azure Key Vault**: This is a cloud service for securely storing and accessing secrets. A secret is anything such as API keys, passwords or certificates.
+* **Azure Key Vault:** This is a cloud service for securely storing and accessing secrets. A secret is anything such as API keys, passwords or certificates.
 
-* **Azure Kubernetes Service (AKS)**: AKS is a cloud-hosted Kubernetes Cluster that Azure provisions, scales and maintains to run containerized applications for customers.
+* **Azure Kubernetes Service (AKS):** AKS is a cloud-hosted Kubernetes Cluster that Azure provisions, scales and maintains to run containerized applications for customers.
 
 **Note**: 
 - In the diagram, only the important infrastructure components are highlighted. Other Resources can be created in Azure such as virtual machines, Storage containers, databases etc depending on the requirements.  
@@ -135,16 +135,16 @@ The architecture diagram contains following infrastructure components:
 
 ### 🔁 **Feature Development & Pull Request Workflow**
 
-1. **Feature Branch Creation**
+1. **Feature Branch Creation**</br>
    A developer creates a dedicated `feature` branch from the `main` branch in GitHub to begin working on a new feature or enhancement.
 
-2. **Code Development & Push**
+2. **Code Development & Push**</br>
    Code changes are developed locally and pushed to the remote `feature` branch.
 
-3. **Pull Request (PR) Submission**
+3. **Pull Request (PR) Submission**</br>
    Once development is complete, a **Pull Request** is created from the `feature` branch to the `main` branch.
 
-4. **Automated Checks on PR**
+4. **Automated Checks on PR**</br>
    Upon PR creation, a set of automated checks are triggered:
 
    * **SonarQube**: For code quality and static analysis
@@ -152,19 +152,19 @@ The architecture diagram contains following infrastructure components:
    * **BlackDuck**: For security and license compliance
    * **Unit Tests**: To validate functionality
 
-5. **Code Review Process**
+5. **Code Review Process**</br>
    After all checks pass, the developer assigns the PR to a **Reviewer**.
 
    * If the reviewer approves the changes, the PR is marked ready for merge.
    * If not, the reviewer leaves comments or requests changes. The developer addresses the feedback and re-submits.
 
-6. **Merge to Main**
+6. **Merge to Main**</br>
    Once approved, the Pull Request is **manually merged** into the `main` branch by the developer or reviewer.
 
-7. **CI Pipeline Trigger**
+7. **CI Pipeline Trigger**</br>
    Merging to `main` automatically triggers the **CI pipeline** for deployment to **Dev** and **QA** environments.
 
-8. **Iteration**
+8. **Iteration**</br>
    Developers can work on multiple feature branches independently, each following this same lifecycle.
 
 
@@ -246,7 +246,7 @@ The architecture diagram contains following infrastructure components:
 ---
 
 
-## 🚢 Deployment Strategy
+##  Deployment Strategy
 
 ###  **Release Workflow Diagram**
 

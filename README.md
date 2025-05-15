@@ -1,4 +1,6 @@
-# FastAPI Kubernetes Deployment with ArgoCD
+# Part 1 - Coding Challenge
+
+## FastAPI Kubernetes Deployment with ArgoCD
 
 This project demonstrates the setup and deployment of a simple **FastAPI** application using **Docker**, **Minikube**, **Kubernetes**, and **ArgoCD** for GitOps. The entire setup is designed for local development and testing using a minimal but production-like stack.
 
@@ -48,6 +50,7 @@ This project demonstrates the setup and deployment of a simple **FastAPI** appli
 * Helm installed
 * Minikube installed (on local machine)
 * ArgoCD installed (on your local machine)
+* ArgoCD Cli installed
 
 ---
 
@@ -61,6 +64,7 @@ Below are the contents:
 - The required dependencies is present in `app-code/requirements.txt`.
 - Containerzed application is defined in file `app-code/Dockerfile`.
 
+*Note: Reference link: [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)*
 ---
 
 ### 2. CI Pipeline
@@ -110,6 +114,7 @@ This can be done using kubectl create command and sample of it is located at [do
 *Note:*
 - Keep the tunnel running to access the ingress controller.
 - Wait for few mins after enabling the ingress, since it needs time to get all the necessary pods into the running state.
+- Reference link: [install minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Fx86-64%2Fstable%2Fbinary+download)
 
 ---
 
@@ -155,6 +160,8 @@ kubectl apply -f repo-secret.yaml
 
 secret/fastapi-git-https created
 ```
+
+*Note*: Reference link: [Install ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 
 ---
 
@@ -220,6 +227,7 @@ curl http://127.0.0.1:8000
 * Make sure Docker image name in Helm `values.yaml` matches the one in your pipeline.
 * Ensure ArgoCD has access to your GitHub repo.
 * Minikube tunnel must stay active while accessing services.
+* ArgoCD Tunnel (Port Forward) should also be opened when accessing it.
 
 ---
 
@@ -253,6 +261,12 @@ Refer to the included images for:
 
 ---
 
+## Part2 
+
+For Part 2, refer [Task2](Task2.md).
+
+---
+
 ## 📫 Contact
 
 For any issues or questions, feel free to open an issue in the repo.
@@ -260,6 +274,8 @@ For any issues or questions, feel free to open an issue in the repo.
 Happy coding! 🎉
 
 ---
+
+
 
 
 

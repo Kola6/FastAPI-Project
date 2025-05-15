@@ -312,8 +312,8 @@ Once the tag is created, the **Release Pipeline** is triggered. This pipeline co
 
 ### 3. **Failure Recovery**
 
-* **Rollback support** via GitOps (ArgoCD tracks Git as source of truth)
-* **Readiness/liveness probes** for pod health
+* **Rollback support:** via GitOps (ArgoCD tracks Git as source of truth)
+* **Readiness/liveness probes:** for pod health
 
 ### 4. **Monitoring & Logging**
 

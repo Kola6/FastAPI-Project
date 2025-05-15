@@ -121,7 +121,7 @@ This can be done using kubectl create command and sample of it is located at [do
 
 ### 4. Install and Configure ArgoCD
 
-*Setup*
+*Setup:*
 ```bash
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
@@ -162,7 +162,7 @@ kubectl apply -f repo-secret.yaml
 secret/fastapi-git-https created
 ```
 
-*Note:* Reference link [Install ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+*Note:* Reference link [install argocd](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 
 ---
 

@@ -36,7 +36,7 @@ The architecture diagram is shown below
 
 ### 1. **Source Code Access Control**
 
-* **Git Repository Hosting**: GitHub Enterprise with enforced **SSO authentication** and **RBAC (Role-Based Access Control)**.
+* **Git Repository Hosting**: GitHub Enterprise with enforced **SSO authentication** and **Role-Based Access Control (RBAC)**.
 
 * **Branch Protections**:
 
@@ -71,6 +71,46 @@ The architecture diagram is shown below
 * Use tools like **Dependabot** to:
 
   * Automatically detect outdated or vulnerable packages.
+
+---
+
+## Infrastructure Architecture 
+
+The Infrastructure as Code (IaC) is developed using `Terraform` in this architecture.
+
+### Infrastructure Workflow
+
+* **Pull Request**: A feature branch is used to create or update the infrastructure. Once the work is done, a Pull Request is created.
+
+* **Terrform Lint**: TFLint is a Linter used to check for any potential issues or errors. Terrfaform inbuilt has a the format feature `terraform fmt` which can be used to check for issues related to formatting, indentation and alignment.
+
+* **Terraform Init**: This first intialiazes the backend and then the working directory containing configuration files and install plugins for required providers. 
+
+* **Terraform Validate**: It is used to validate the terrform configuration provided such that it approves only for the ones supported by terraform. It points out when certain resource configuration is invalid.
+
+* **Terraform Plan**: This will generate the complete terraform plan showing the changes reflected in the infrastructure creation, updation or deletion.
+
+* **Merge Pull Request**: Approval is provided by reviewer when all the checks on terraform pipeline are green starting from TFLint until Terraform Plan and then merged to `main` branch.
+
+* **Terraform Apply**: When Pull Request is merged, terraform then applies the configuration changes to the Cloud infrastructure.
+
+**Note**: 
+- `Terraform Destroy` is used to destroy the infrastructure created. 
+- Complete infrastrcture can be destroyed with this command and it should be used very carefully.
+
+
+### Azure Infrastructure
+
+The architecture diagram contains following infrastructure components:
+
+* **Azure Container Registry (ACR)**: This is used to store build, store and manage container images and artifacts in a private registry for all types of container deployments. 
+
+* **Azure Key Vault**: This is a cloud service for securely storing ad accessing secrets. A secret is anything such as API keys, passwords or certificates.
+
+* **Azure Kubernetes Service (AKS)**: AKS is a cloud-hosted Kubernetes Cluster that Azure provisions, scales and maintains to run containerized applications for customers.
+
+**Note**: 
+- In the diagram, highlighted only the important infrastructure components. Other Resources can be created in Azure such as virtual machines, Storage containers, databases etc depending on the requirements.  
 
 ---
 
@@ -182,13 +222,66 @@ The architecture diagram is shown below
 
 ## 🚢 Deployment Strategy
 
-### 1. **Release Workflow Diagram**
+###  **Release Workflow Diagram**
 
 Shown below:
 ![Release Flow](./additional-files/images/img8.png)
 
+---
 
-### 2. **Release Deployment Process**
+###  **Production Release Process**
+
+Assuming CI/CD pipelines have successfully passed in both **Development** and **QA** environments, including green results for **smoke** and **regression** tests, the release process to Production can be initiated.
+
+---
+
+#### 🚀 **1. Release Tag Creation**
+
+* A `Release Tag` is **manually created** in GitHub by the **QA** or **DevOps** team member responsible for the release.
+* This tag is used to identify the exact version of the code to be released to Production.
+
+
+#### 🛠 **2. Release Pipeline Execution**
+
+Once the tag is created, the **Release Pipeline** is triggered. This pipeline consists of four sequential jobs:
+
+#### ✅ Setup Job
+
+* Detects and identifies changes in the files or directories within the GitHub repository.
+* Determines whether a new build is necessary based on code changes.
+
+#### 🔧 Build Job
+
+* Builds the containerized application.
+* If the image tag used in the QA environment already exists, the **same tag is reused** for Production.
+* If not, a **new image** is created, built, and pushed to **Azure Container Registry (ACR)**.
+
+#### 🔒 BlackDuck Release Scan
+
+* Performs a **security and license compliance scan** on the container image.
+* Results are sent to the **BlackDuck server** for tracking and can be reviewed via the **BlackDuck dashboard**.
+
+#### ✏️ Update Job
+
+* Updates the **image tag** (e.g., GitHub SHA/hash) in the Helm `values.yaml` file to point to the correct version for deployment.
+
+#### 🚢 **3. Deployment to Production**
+
+* Navigate to the **ArgoCD Dashboard**.
+* Manually **sync the application** using the updated Helm values.
+* Upon sync completion (success or failure), **notifications** are automatically sent to the relevant **Slack channel**.
+
+#### 🔍 **4. Manual Sanity Testing**
+
+* After receiving a successful sync notification, the **QA team** conducts **manual sanity checks** in the **Production environment**.
+* These checks validate that **critical paths and core functionality** are working as expected in the live system.
+
+#### 📣 **5. Final Confirmation and Communication**
+
+* Once the QA team gives the **green light**, stakeholders are informed that the release is complete.
+* A **public announcement** is then made, highlighting **new features or updates** now available to customers.
+
+---
 
 ### 3. **Failure Recovery**
 
@@ -196,5 +289,16 @@ Shown below:
 * **Readiness/liveness probes** for pod health
 
 ### 3. **Monitoring & Logging**
+
+* In the architecture diagram, **New Relic** is used for both monitoring and logging.
+* Alerts can be configured in New Relic and send notifications to slack channel when an anomaly is detected.
+* New Relic supports AKS cluster monitoring by providing full observability into health, performance and usage of containerized application and infrastructure.
+* Logging is supported by collecting, parsing, and forwarding logs from AKS including both platform-level logs (like system, kublet, ingress) and application logs (from microservices). 
+
+---
+
+## 📫 Contact
+
+For any issues or questions, feel free to open an issue in the repo.
 
 ---

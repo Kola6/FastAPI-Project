@@ -9,7 +9,7 @@ Here’s a comprehensive architecture design and description that includes **cod
 ```
 my-app/
 ├── .github/
-│   └── workflows/                  # GitHub Actions CI/CD workflows
+│   └── workflows/                 # GitHub Actions CI/CD workflows
 ├── app/
 │   └── (source code)              # Actual application code
 ├── charts/

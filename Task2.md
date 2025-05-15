@@ -6,6 +6,7 @@ Here’s a comprehensive architecture design description that includes **code pr
 
 ## Repository Structure/Setup
 
+```
 my-app/
 ├── .github/
 │   └── workflows/                  # GitHub Actions CI/CD workflows
@@ -22,13 +23,14 @@ my-app/
 │   └── azure-infra/               # Infra as code - K8s, Key Vault etc.
 ├── sonar-project.properties
 └── README.md
+```
 
 ---
 
 ## Architecture Diagram 
 
-The architecture diagram is shown below 
-![architecture](./additional-files/images/img7.png).
+The architecture diagram is shown below: 
+![architecture](./additional-files/images/img7.png)
 
 ---
 
@@ -51,10 +53,10 @@ The architecture diagram is shown below
 
 ### 2. **Secrets Management**
 
-* No hard-coded secrets in source code.
+* No hard-coded secrets in source code repository.
 * Use **Azure Key Vault** to manage environment secrets.
 * Inject secrets at runtime using tools like **Sealed Secrets**, **Kubernetes Secrets**, or **CI/CD secret injection mechanisms**.
-* Enable **CodeQL** in GitHub which scans for vulnerability and identifies hard code secrets.
+* Enable **CodeQL** in GitHub which scans for vulnerability and identifies hard coded secrets.
 * Enable **Secret Scanning (GitHub Advanced Security)** which checks for secret patterns like API keys, tokens etc. Alerts are raised which notifies the Owner and Administrator.
 
 ### 3. **Static Code Analysis & Security Scanning**
@@ -84,7 +86,7 @@ The Infrastructure as Code (IaC) is developed using `Terraform` in this architec
 
 * **Terrform Lint**: TFLint is a Linter used to check for any potential issues or errors. Terrfaform inbuilt has a the format feature `terraform fmt` which can be used to check for issues related to formatting, indentation and alignment.
 
-* **Terraform Init**: This first intialiazes the backend and then the working directory containing configuration files and install plugins for required providers. 
+* **Terraform Init**: This first intializes the backend and then the working directory containing configuration files and install plugins for required providers. 
 
 * **Terraform Validate**: It is used to validate the terrform configuration provided such that it approves only for the ones supported by terraform. It points out when certain resource configuration is invalid.
 
@@ -96,7 +98,7 @@ The Infrastructure as Code (IaC) is developed using `Terraform` in this architec
 
 **Note**: 
 - `Terraform Destroy` is used to destroy the infrastructure created. 
-- Complete infrastrcture can be destroyed with this command and it should be used very carefully.
+- Complete infrastructure can be destroyed with this command and it should be used very carefully.
 
 
 ### Azure Infrastructure
@@ -105,12 +107,12 @@ The architecture diagram contains following infrastructure components:
 
 * **Azure Container Registry (ACR)**: This is used to store build, store and manage container images and artifacts in a private registry for all types of container deployments. 
 
-* **Azure Key Vault**: This is a cloud service for securely storing ad accessing secrets. A secret is anything such as API keys, passwords or certificates.
+* **Azure Key Vault**: This is a cloud service for securely storing and accessing secrets. A secret is anything such as API keys, passwords or certificates.
 
 * **Azure Kubernetes Service (AKS)**: AKS is a cloud-hosted Kubernetes Cluster that Azure provisions, scales and maintains to run containerized applications for customers.
 
 **Note**: 
-- In the diagram, highlighted only the important infrastructure components. Other Resources can be created in Azure such as virtual machines, Storage containers, databases etc depending on the requirements.  
+- In the diagram, only the important infrastructure components are highlighted. Other Resources can be created in Azure such as virtual machines, Storage containers, databases etc depending on the requirements.  
 
 ---
 
@@ -130,17 +132,40 @@ The architecture diagram contains following infrastructure components:
 * **Notifications**: Slack
 * **Secret Management**: Azure Key Vault & Github Secrets
 
-### Developer Workflow
 
-* A developer creates a `feature` branch on Github, develops and pushes code to it. 
-* Once the development is done, a `Pull Request` is created.
-* This Pull Request then checks for the checks configured (Sonarqube, Linter, Blackduck and unit tests). 
-* When the checks are green and everything looks okay, developer requests a review from a Reviewer and assigns on the Pull Request. 
-* The `Reviewer` then reviews the Pull Request. If everything is fine, then provides approval else rejects and requests changes or leaves comments on the Pull Request.
-* Once the Pull Request is approved, it is then manually merged into `main` branch.
-* Pull Request merged automatically triggers the CI pipeline for Dev & QA environment. 
-* Incase the Pull request is rejected, the developer reworks and sends for approval again.
-* Developers can create multiple feature branches and Pull requests for their development work independently.
+### 🔁 **Feature Development & Pull Request Workflow**
+
+1. **Feature Branch Creation**
+   A developer creates a dedicated `feature` branch from the `main` branch in GitHub to begin working on a new feature or enhancement.
+
+2. **Code Development & Push**
+   Code changes are developed locally and pushed to the remote `feature` branch.
+
+3. **Pull Request (PR) Submission**
+   Once development is complete, a **Pull Request** is created from the `feature` branch to the `main` branch.
+
+4. **Automated Checks on PR**
+   Upon PR creation, a set of automated checks are triggered:
+
+   * **SonarQube**: For code quality and static analysis
+   * **Linter**: To enforce code style and standards
+   * **BlackDuck**: For security and license compliance
+   * **Unit Tests**: To validate functionality
+
+5. **Code Review Process**
+   After all checks pass, the developer assigns the PR to a **Reviewer**.
+
+   * If the reviewer approves the changes, the PR is marked ready for merge.
+   * If not, the reviewer leaves comments or requests changes. The developer addresses the feedback and re-submits.
+
+6. **Merge to Main**
+   Once approved, the Pull Request is **manually merged** into the `main` branch by the developer or reviewer.
+
+7. **CI Pipeline Trigger**
+   Merging to `main` automatically triggers the **CI pipeline** for deployment to **Dev** and **QA** environments.
+
+8. **Iteration**
+   Developers can work on multiple feature branches independently, each following this same lifecycle.
 
 ### 🔧 Continuous Integration (CI) Steps
 
@@ -208,8 +233,6 @@ The architecture diagram contains following infrastructure components:
 
 * **Number of clusters**: Two clusters used where one cluster contains Dev and QA namespace and the other cluster is only for Prod. Production Cluster will usually have a different configuration eg. increased replicasets, highly availability, Autoscaling enabled etc. 
 
----
-
 ### 2. **Environment Separation**
 
 | Environment | Description                                                                            |
@@ -224,7 +247,7 @@ The architecture diagram contains following infrastructure components:
 
 ###  **Release Workflow Diagram**
 
-Shown below:
+Shown below:</br>
 ![Release Flow](./additional-files/images/img8.png)
 
 ---
@@ -288,7 +311,7 @@ Once the tag is created, the **Release Pipeline** is triggered. This pipeline co
 * **Rollback support** via GitOps (ArgoCD tracks Git as source of truth)
 * **Readiness/liveness probes** for pod health
 
-### 3. **Monitoring & Logging**
+### 4. **Monitoring & Logging**
 
 * In the architecture diagram, **New Relic** is used for both monitoring and logging.
 * Alerts can be configured in New Relic and send notifications to slack channel when an anomaly is detected.

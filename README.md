@@ -161,7 +161,8 @@ kubectl apply -f repo-secret.yaml
 secret/fastapi-git-https created
 ```
 
-*Note: Reference link: [Install ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)*
+*Note*: Reference link: [Install ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+
 ---
 
 ### 5. ArgoCD Application Configuration

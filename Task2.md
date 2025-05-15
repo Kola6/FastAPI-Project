@@ -1,10 +1,10 @@
 # Part 2 - Architecture of deployment and project structure
 
-Here’s a comprehensive architecture design description that includes **code protection**, **CI/CD pipeline**, **cluster architecture**, and **deployment strategy**. 
+Here’s a comprehensive architecture design and description that includes **code protection**, **CI/CD pipeline**, **cluster architecture**, and **deployment strategy**. 
 
 ---
 
-## Repository Structure/Setup
+## Repository Setup
 
 ```
 my-app/
@@ -29,7 +29,7 @@ my-app/
 
 ## Architecture Diagram 
 
-The architecture diagram is shown below: 
+The architecture diagram is shown below:</br> 
 ![architecture](./additional-files/images/img7.png)
 
 ---
@@ -167,6 +167,7 @@ The architecture diagram contains following infrastructure components:
 8. **Iteration**
    Developers can work on multiple feature branches independently, each following this same lifecycle.
 
+
 ### 🔧 Continuous Integration (CI) Steps
 
 1. **Setup**
@@ -181,6 +182,7 @@ The architecture diagram contains following infrastructure components:
 3. **Update Helm**
 
    * The relevant helm values file is updated for docker image tag for respective environment. For eg. For dev, values-dev.yaml file.
+
 
 ### 🚀 Continuous Delivery/Deployment (CD) Steps
 
@@ -242,6 +244,7 @@ The architecture diagram contains following infrastructure components:
 | `prod`      | Stable environment. Manual approval. Monitored tightly. |
 
 ---
+
 
 ## 🚢 Deployment Strategy
 

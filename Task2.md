@@ -97,8 +97,8 @@ The Infrastructure as Code (IaC) is developed using `Terraform` in this architec
 * **Terraform Apply:** When Pull Request is merged, terraform then applies the configuration changes to the Cloud infrastructure.
 
 **Note**: 
-- `Terraform Destroy` is used to destroy the infrastructure created. 
-- Complete infrastructure can be destroyed with this command and it should be used very carefully.
+* `Terraform Destroy` is used to destroy the infrastructure created. 
+* Complete infrastructure can be destroyed with this command and it should be used very carefully.
 
 
 ### Azure Infrastructure
@@ -112,7 +112,8 @@ The architecture diagram contains following infrastructure components:
 * **Azure Kubernetes Service (AKS):** AKS is a cloud-hosted Kubernetes Cluster that Azure provisions, scales and maintains to run containerized applications for customers.
 
 **Note**: 
-- In the diagram, only the important infrastructure components are highlighted. Other Resources can be created in Azure such as virtual machines, Storage containers, databases etc depending on the requirements.  
+- In the diagram, only the important infrastructure components are highlighted. 
+- Other Resources can be created in Azure such as virtual machines, Storage containers, databases etc depending on the requirements. 
 
 ---
 

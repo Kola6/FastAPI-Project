@@ -64,7 +64,8 @@ Below are the contents:
 - The required dependencies is present in `app-code/requirements.txt`.
 - Containerzed application is defined in file `app-code/Dockerfile`.
 
-*Note*: Reference link: [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
+*Note:* Reference link [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/)
+
 ---
 
 ### 2. CI Pipeline
@@ -161,7 +162,7 @@ kubectl apply -f repo-secret.yaml
 secret/fastapi-git-https created
 ```
 
-*Note*: Reference link: [Install ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+*Note:* Reference link [Install ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 
 ---
 

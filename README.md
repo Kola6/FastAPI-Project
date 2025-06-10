@@ -1,6 +1,4 @@
-# Part 1 - Coding Challenge
-
-## FastAPI Kubernetes Deployment with ArgoCD
+# Deploy FastAPI to Kubernetes with ArgoCD (Local Setup)
 
 This project demonstrates the setup and deployment of a simple **FastAPI** application using **Docker**, **Minikube**, **Kubernetes**, and **ArgoCD** for GitOps. The entire setup is designed for local development and testing using a minimal but production-like stack.
 
@@ -275,11 +273,3 @@ For any issues or questions, feel free to open an issue in the repo.
 Happy coding! 🎉
 
 ---
-
-
-
-
-
-
-
-

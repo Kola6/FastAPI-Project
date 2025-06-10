@@ -1,4 +1,4 @@
-# Part 2 - Architecture of deployment and project structure
+# Deployment Architecture: Security, CI/CD & Strategy
 
 Here’s a comprehensive architecture design and description that includes **code protection**, **CI/CD pipeline**, **cluster architecture**, and **deployment strategy**. 
 

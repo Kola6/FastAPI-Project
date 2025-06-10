@@ -258,11 +258,6 @@ Refer to the included images for:
 
 ![FastAPI redocs](./additional-files/images/img6.png)
 
----
-
-## Part2 
-
-For Part 2, refer [Task2](Task2.md).
 
 ---
 

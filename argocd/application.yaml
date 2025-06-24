@@ -9,7 +9,7 @@ spec:
     namespace: default
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/serrajov/FastAPI.git
+    repoURL: https://github.com/Kola6/FastAPI-Project.git
     targetRevision: develop
     path: helm/fastapi-app
     helm:

@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: joviserrao/fastapi-app
+  repository: kola06/fastapi-app
   tag: "latest"
   pullPolicy: IfNotPresent
 

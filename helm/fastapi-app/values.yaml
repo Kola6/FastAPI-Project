@@ -2,11 +2,11 @@ replicaCount: 1
 
 image:
   repository: kola06/fastapi-app
-  tag: "latest"
-  pullPolicy: IfNotPresent
+  tag: "latest"  # ← this will be overwritten by GitHub Actions per build
+  pullPolicy: Always
 
 imagePullSecrets:
-- name: dockerhub-cred
+  - name: dockerhub-cred
 
 service:
   name: fastapi-service
@@ -17,7 +17,7 @@ ingress:
   enabled: true
   className: "nginx"
   hosts:
-  - host: fastapi.local
-    paths:
-    - path: /
-      pathType: Prefix
+    - host: fastapi.local
+      paths:
+        - path: /
+          pathType: Prefix

@@ -236,27 +236,27 @@ Refer to the included images for:
 
 * ArgoCD Application UI </br>
 
-![ArgoCD App](./additional-files/images/img1.png)
+![ArgoCD App](./additional-files/images/image1.png)
 
 * Browser access confirmation </br>
 
-![Browser Access](./additional-files/images/img2.png)
+![Browser Access](./additional-files/images/image2.png)
 
 * Terminal access confirmation </br>
 
-![Terminal Access](./additional-files/images/img3.png)
+![Terminal Access](./additional-files/images/image3.png)
 
 * Terminal output for Minikube services </br>
 
-![Minikube Service](./additional-files/images/img4.png)
+![Minikube Service](./additional-files/images/image4.png)
 
 * Browser Access for FastAPI with docs endpoint </br>
 
-![FastAPI docs](./additional-files/images/img5.png)
+![FastAPI docs](./additional-files/images/image5.png)
 
 * Browser Access for FastAPI with redocs endpoint </br>
 
-![FastAPI redocs](./additional-files/images/img6.png)
+![FastAPI redocs](./additional-files/images/image6.png)
 
 
 ---

@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: kola06/fastapi-app
-  tag: "latest"  # ← this will be overwritten by GitHub Actions per build
+  tag: "fastapi-20250625180647"
   pullPolicy: Always
 
 imagePullSecrets:
